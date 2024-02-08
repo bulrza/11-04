@@ -1,0 +1,33 @@
+version: '3.7'
+services:
+  rabbitmq:
+    container_name: rabbitmq1
+    image: rabbitmq:3.10.6-management-alpine
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+      - RABBITMQ_ERLANG_COOKIE='mysecret'
+    ports:
+      - 5672:5672
+      - 15672:15672
+    hostname: rabbitmq1
+#    volumes:
+#      - ./:/var/lib/rabbitmq/mnesia
+  rabbitmq2:
+    container_name: rabbitmq2
+    image: rabbitmq:3.10.6-management-alpine
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+      - RABBITMQ_ERLANG_COOKIE='mysecret'
+    ports:
+      - 5673:5672
+      - 15673:15672
+    hostname: rabbitmq2
+#    volumes:
+#      - ./erlang.cookie2:/var/lib/rabbitmq/.erlang.cookie
+#      - ./:/var/lib/rabbitmq/mnesia
+  app:
+    image: python:3
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t

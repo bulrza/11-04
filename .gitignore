@@ -1,0 +1,6 @@
+rabbit@rabbitmq1/
+rabbit@rabbitmq1-plugins-expand/
+rabbit@rabbitmq2/
+rabbit@rabbitmq2-plugins-expand/
+rabbit@rabbitmq1-feature_flags
+rabbit@rabbitmq2-feature_flags
